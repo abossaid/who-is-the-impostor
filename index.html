@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>من المحتال؟</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- Home Screen -->
+            <section id="home-screen" class="screen">
+                <h1>من المحتال؟</h1>
+
+                <button id="playButton">ابدأ اللعبة</button>
+            </section>
+
+            <!-- Create Game Screen -->
+            <section id="create-game-screen" class="screen hidden">
+                <h2>إنشاء لعبة</h2>
+
+                <div class="player-input">
+                    <input id="playerName" type="text"
+                        placeholder="اسم اللاعب" />
+
+                    <button id="addPlayerButton">+</button>
+                </div>
+
+                <ul id="playersList"></ul>
+
+                <hr />
+
+                <h3>الفئات</h3>
+
+                <div class="category-actions">
+                    <button id="selectAllCategoriesButton" type="button">✅ تحديد الكل</button>
+                    <button id="clearAllCategoriesButton" type="button">❌ إلغاء الكل</button>
+                </div>
+
+                <div id="categoriesContainer"></div>
+
+                <hr />
+
+                <h3>عدد المحتالين</h3>
+
+                <div class="impostor-controls">
+                    <button id="minusButton">-</button>
+
+                    <span id="impostorCount">1</span>
+
+                    <button id="plusButton">+</button>
+                </div>
+
+                <button id="startGameButton" disabled>ابدأ اللعبة</button>
+            </section>
+
+            <!-- Role reveal screens -->
+            <section id="pass-phone-screen" class="screen hidden">
+                <p class="screen-label">دور اللاعب</p>
+                <h2 id="passPhoneMessage"></h2>
+                <button id="readyButton">أنا جاهز</button>
+            </section>
+
+            <section id="role-screen" class="screen hidden">
+                <p id="roleTitle" class="screen-label"></p>
+                <h2 id="roleMessage"></h2>
+                <p id="impostorSubtitle" class="impostor-subtitle hidden">🤫 حاول اكتشاف الكلمة</p>
+                <button id="hideRoleButton">إخفاء</button>
+            </section>
+
+            <section id="discussion-screen" class="screen hidden">
+                <p class="screen-label">حان وقت النقاش</p>
+                <h2 id="startingPlayerMessage"></h2>
+                <button id="startDiscussionButton">ابدأ النقاش</button>
+            </section>
+
+            <section id="impostor-reveal-screen" class="screen hidden">
+                <p id="impostorRevealTitle" class="screen-label"></p>
+                <div id="impostorsList" class="impostors-list"></div>
+                <button id="newGameButton">لعبة جديدة</button>
+            </section>
+        </div>
+
+<script src="js/data.js"></script>
+<script src="js/players.js"></script>
+<script src="js/categories.js"></script>
+<script src="js/game.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/script.js"></script>
+    </body>
+</html>
