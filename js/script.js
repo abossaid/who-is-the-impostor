@@ -75,7 +75,9 @@ document.getElementById("hideRoleButton").addEventListener("click", hideRole);
 
 document.getElementById("startDiscussionButton").addEventListener("click", handleDiscussionButton);
 
-document.getElementById("newGameButton").addEventListener("click", resetGame);
+document.getElementById("newGameButton").addEventListener("click", startNewRound);
+
+document.getElementById("editSettingsButton").addEventListener("click", editSettings);
 
 renderCategories();
 

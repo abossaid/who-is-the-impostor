@@ -58,6 +58,11 @@
                     <button id="plusButton">+</button>
                 </div>
 
+                <label class="setting-card">
+                    <input id="impostorsKnowEachOther" type="checkbox" />
+                    <span>المحتالون يعرفون بعضهم</span>
+                </label>
+
                 <button id="startGameButton" disabled>ابدأ اللعبة</button>
             </section>
 
@@ -72,6 +77,7 @@
                 <p id="roleTitle" class="screen-label"></p>
                 <h2 id="roleMessage"></h2>
                 <p id="impostorSubtitle" class="impostor-subtitle hidden">🤫 حاول اكتشاف الكلمة</p>
+                <p id="otherImpostors" class="other-impostors hidden"></p>
                 <button id="hideRoleButton">إخفاء</button>
             </section>
 
@@ -84,7 +90,10 @@
             <section id="impostor-reveal-screen" class="screen hidden">
                 <p id="impostorRevealTitle" class="screen-label"></p>
                 <div id="impostorsList" class="impostors-list"></div>
-                <button id="newGameButton">لعبة جديدة</button>
+                <div class="end-game-actions">
+                    <button id="newGameButton" type="button">🎮 لعبة جديدة</button>
+                    <button id="editSettingsButton" type="button">⚙️ تعديل الإعدادات</button>
+                </div>
             </section>
         </div>
 

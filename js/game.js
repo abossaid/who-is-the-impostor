@@ -29,6 +29,9 @@ function createGame() {
         word: getRandomItem(category.words),
         players: [...players],
         impostors,
+        settings: {
+            impostorsKnowEachOther: document.getElementById("impostorsKnowEachOther").checked
+        },
         currentRevealIndex: 0,
         startingPlayer: getRandomItem(players)
     };
@@ -58,11 +61,21 @@ function showRoleScreen() {
     const roleTitle = document.getElementById("roleTitle");
     const roleMessage = document.getElementById("roleMessage");
     const impostorSubtitle = document.getElementById("impostorSubtitle");
+    const otherImpostorsMessage = document.getElementById("otherImpostors");
+    const otherImpostors = game.impostors.filter(impostor => impostor !== player);
+    const shouldShowOtherImpostors =
+        isImpostor &&
+        game.settings.impostorsKnowEachOther &&
+        otherImpostors.length > 0;
 
     roleTitle.textContent = isImpostor ? "" : "الكلمة";
     roleMessage.textContent = isImpostor ? "أنت المحتال" : game.word;
     roleMessage.classList.toggle("impostor-role", isImpostor);
     impostorSubtitle.classList.toggle("hidden", !isImpostor);
+    otherImpostorsMessage.textContent = shouldShowOtherImpostors
+        ? `المحتالون الآخرون: ${otherImpostors.join("، ")}`
+        : "";
+    otherImpostorsMessage.classList.toggle("hidden", !shouldShowOtherImpostors);
 
     showScreen("pass-phone-screen", "role-screen");
 
@@ -129,23 +142,18 @@ function showImpostorsScreen() {
 
 }
 
-function resetGame() {
+function startNewRound() {
+
+    createGame();
+
+}
+
+function editSettings() {
 
     game = null;
     discussionStarted = false;
-    players = [];
-    selectedCategories = [];
-    impostorCount = 1;
-
-    document.getElementById("playerName").value = "";
-    document.getElementById("impostorCount").textContent = impostorCount;
-    document.querySelectorAll("#categoriesContainer input").forEach(input => {
-        input.checked = false;
-    });
-
-    renderPlayers();
     validateGame();
-    showScreen("impostor-reveal-screen", "home-screen");
+    showScreen("impostor-reveal-screen", "create-game-screen");
 
 }
 

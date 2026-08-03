@@ -185,11 +185,48 @@ hr { height: 1px; margin: 22px 0 0; border: 0; background: var(--border); }
     font-weight: 800;
 }
 
+.setting-card {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 0 0 24px;
+    padding: 13px 14px;
+    text-align: right;
+    color: var(--text);
+    background: rgba(37, 48, 65, .72);
+    border: 1px solid transparent;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.setting-card:hover { transform: translateY(-2px); background: var(--surface-light); border-color: rgba(245, 185, 66, .25); }
+.setting-card:has(input:checked) { background: rgba(245, 185, 66, .12); border-color: rgba(245, 185, 66, .7); }
+.setting-card input { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+
 #startGameButton, .screen > button {
     width: 100%;
     color: #1d2027;
     background: linear-gradient(135deg, #ffd467, var(--accent));
     box-shadow: 0 10px 22px rgba(217, 154, 32, .2);
+}
+
+.end-game-actions {
+    display: grid;
+    gap: 10px;
+}
+
+.end-game-actions button {
+    width: 100%;
+    color: #1d2027;
+    background: linear-gradient(135deg, #ffd467, var(--accent));
+    box-shadow: 0 10px 22px rgba(217, 154, 32, .2);
+}
+
+.end-game-actions button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #ffe08a, #f8bd48);
+    box-shadow: 0 13px 25px rgba(217, 154, 32, .3);
 }
 
 #startGameButton:hover:not(:disabled), .screen > button:hover:not(:disabled) { background: linear-gradient(135deg, #ffe08a, #f8bd48); box-shadow: 0 13px 25px rgba(217, 154, 32, .3); }
@@ -221,6 +258,17 @@ hr { height: 1px; margin: 22px 0 0; border: 0; background: var(--border); }
     color: var(--muted);
     font-size: .95rem;
     font-weight: 600;
+}
+
+.other-impostors {
+    margin: -14px 0 24px;
+    padding: 10px 12px;
+    color: #ffb2b6;
+    background: rgba(239, 91, 101, .1);
+    border: 1px solid rgba(239, 91, 101, .28);
+    border-radius: 12px;
+    font-size: .92rem;
+    font-weight: 700;
 }
 
 .impostors-list {
