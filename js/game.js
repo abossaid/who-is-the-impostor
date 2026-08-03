@@ -144,7 +144,19 @@ function showImpostorsScreen() {
 
 function startNewRound() {
 
+    resetRound();
     createGame();
+
+}
+
+function resetRound() {
+
+    game = null;
+    discussionStarted = false;
+    document.getElementById("impostorsList").innerHTML = "";
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.add("hidden");
+    });
 
 }
 
